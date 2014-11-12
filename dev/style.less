@@ -1,0 +1,322 @@
+/**
+* Global Reset of all HTML Elements
+* I use this always and it's based on meyer's reset and normalize.
+* I didn't wrote this myself.
+*/
+html, body {border: 0; font-family: "Helvetica-Neue", "Helvetica", Arial, sans-serif; line-height: 1.5; margin: 0; padding: 0; -webkit-font-smoothing: antialiased;}
+div, span, object, iframe, img, table, caption, thead, tbody, tfoot, tr, tr, td, article, aside, canvas, details, figure, hgroup, menu, nav, footer, header, section, summary, mark, audio, video {border: 0; margin: 0; padding: 0; }
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cit, code, del, dfn, em, ins, q, samp, small, strong, sub, sup, b, i, hr, dl, dt, dd, ol, ul, li, fieldset, legend, label {border: 0; font-size: 100%; vertical-align: baseline; margin: 0; padding: 0; }
+article, aside, canvas, figure, figure img, figcaption, hgroup, footer, header, nav, section, audio, video {display: block; }
+table {border-collapse: separate; border-spacing: 0; caption, th, td {text-align: left; vertical-align: middle; } }
+a img {border: 0;}
+:focus {outline: 0;}
+
+/**
+* Variables
+*/
+@bodyBgColor:#423674;
+@fontfamily:'Oswald', sans-serif;;
+
+@dateBgColor:#3f67c0;
+@dateFontColor:#FFF;
+
+@titleBgColor: rgba(34, 40, 79, 0.75);
+@titleTextColor: #FFF;
+
+
+
+.col1-3{
+  float: left;
+  margin-bottom: 14px;
+  &.first{
+    margin-right: 14px;
+  }
+  &.last{
+    margin-left: 14px;
+  }
+}
+.col2-3{
+  float: left;
+  margin-bottom: 14px;
+  img{
+    width: 100%;
+  }
+}
+.col3-3{
+  margin: 0 auto;
+}
+
+
+/**
+* Helpers 
+*/
+.clearfix:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+
+/**
+* Grid
+*/
+
+
+/**
+* Website in itself
+*/
+body{
+  background: @bodyBgColor;
+}
+
+/**
+* Carousel
+*/
+header aside{
+  height: 300px;
+  background: #e1e2e9;
+  box-sizing: border-box;
+  padding: 100px 35px;
+  h1{
+    font:bold 48px/48px @fontfamily;
+    text-transform: uppercase;
+    color: #22284f;
+    &:after{
+      display: inline-block;
+      content: "";
+      background: url(../img/sprite.png) 5px 10px no-repeat;
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+.carousel {
+  overflow: hidden;
+  position: relative;
+  height: 300px;
+  .go, .back{
+      position: absolute;
+      bottom: 0;
+      background: #0e112a;
+      color: #FFF;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      z-index: 5;
+      text-align: center;
+      font:18px/37px @fontfamily
+    }
+    .go{
+      left: 40px
+    }
+  .mask{
+    position: relative;
+    height: 300px;
+    left: 0;    
+  }
+  article{
+  display: none; 
+  position: relative;
+  float: left;
+  height: 300px;
+    &:first-of-type{ 
+      display: block; 
+    }
+    img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    time, h2{
+      position: relative;
+      z-index: 2;
+    }
+    time, h2{
+      float: none;
+    }
+  }
+}
+
+/**
+* Date/Time
+*/
+article time{
+  background: @dateBgColor;
+  display: inline-block;
+  padding: 5px;
+  color: @dateFontColor;
+  font:16px @fontfamily;
+  position: relative;
+  &:after{
+    content:"";
+    display: block;
+    width: 34px;
+    height: 34px;
+    background: url(../img/sprite.png) 0 0 no-repeat @dateBgColor;
+    position: absolute; 
+    top: 0;
+    right: -34px;
+    border-left: 1px solid #5279c9;
+  }
+  &.video:after{
+    background-position: -348px 11px;
+  }
+  &.photo:after{
+    background-position: -584px 11px;
+  }
+  &.text:after{
+    background-position: -468px 9px;
+  }
+}
+/* Twitter's exception */
+blockquote + time{
+  display: inline;
+  background: none;
+  color: @dateFontColor;
+  font:16px @fontfamily;
+  &:after{
+    display: none;
+  }
+}
+
+/**
+* Title
+*/
+h2 a, .carousel h2 span{
+  font:38px @fontfamily;
+  display: inline;
+  background: @titleBgColor;
+  text-transform: uppercase;
+  color: @titleTextColor;
+  text-decoration: none;
+}
+.carousel a{
+  display: block;
+  text-decoration: none;
+}
+
+/**
+* Squares
+*/
+article{
+  background: #787878;
+  min-height: 300px;
+  display: inline-block;
+}
+
+/**
+* Twitter
+*/
+.twitter{
+  box-sizing: border-box;
+  background: #35b5eb;
+  padding: 44px 26px;
+  font:18px sans-serif;
+  color: #FFF;
+  a{
+    color: #FFF;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  time{
+    padding-top: 20px;
+    display: inline-block;
+    background: none;
+    font:16px sans-serif;
+    color: #e1e2e9;
+    &:after{
+      display: block;
+      content: "";
+      width: 50px;
+      height: 50px;
+      background: url(../img/sprite.png) -228px 0 no-repeat;
+      position: relative;
+      left: 0;
+      border: none;
+      top: 30px;
+    }
+  }
+}
+
+/**
+* View more
+*/
+article nav a{
+  display: block;
+  height: 300px;
+  width: 100%;
+  background: #eb5b4c;
+  font:bold 48px/48px @fontfamily;
+  color: #FFF;
+  text-transform: uppercase;
+  position: relative;
+  text-decoration: none;
+  box-sizing: border-box;
+  padding: 100px 35px;
+  &:after{
+    content:"";
+    width: 50px;
+    height: 50px;
+    background: url(../img/sprite.png) -113px 16px no-repeat;
+    display: inline-block;
+  }
+}
+
+/**
+* Responsive grid
+*/
+#responsive {
+  .set(@bodyPadding,@col1Width,@col2Width,@col3Width) {
+    body{
+      padding: @bodyPadding;
+    }
+    .col1-3{
+      width: @col1Width;
+    }
+    .col2-3{
+      width: @col2Width;
+    }
+    .col3-3{
+      width: @col3Width;
+    }
+  }
+}
+
+@media (max-width: 630px) {
+  #responsive > .set(10px,100%,100%,100%);
+  .col1-3, .col2-3{
+  float: left;
+  margin:7px 0;
+  &.first{
+    margin:7px 0;
+  }
+  &.last{
+    margin:7px 0;
+  }
+  }
+  .col2-3 img{
+    width: auto;
+    height: 100%;
+  }
+}
+@media (min-width: 631px) and (max-width: 858px) {
+  #responsive > .set(10px,47%,47%,100%);
+  .col1-3, .col2-3{
+  float: left;
+  margin:7px;
+  &.first{
+    margin:7px;
+  }
+  &.last{
+    margin:7px;
+  }
+}
+.col2-3 img{
+    width: auto;
+    height: 100%;
+  }
+}
+
+@media (min-width: 859px) {
+  #responsive > .set(10px,32.2%,66%,100%);
+}
+
+@media (min-width: 1100px) {
+  #responsive > .set(120px 92px,32.2%,66%,928px);
+}
